@@ -1,0 +1,35 @@
+package com.example.widgets1
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
+import kotlinx.android.extensions.*
+import kotlinx.android.synthetic.main.activity_main.*
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        editText.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0 : Editable?){
+
+                if(p0.toString().length >= 8){
+                    Log.d("EditText", "8자 이상일 때만 출력 = ${p0.toString()}")
+                }else {
+                    Log.d("EditText", "value : ${p0.toString()}")
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
+    }
+
+}
