@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,14 +16,19 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("from1", "hello Bundle")
         intent.putExtra("from2","2020")
 
-        btnStart.setOnClickListener{ startActivity(intent)}
+        btnStart.setOnClickListener{ startActivityForResult(intent, 99)}
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK){
-            val message = data?.getStringExtra("returnValue")
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            when(requestCode){
+                99->{
+                    val message = data?.getStringExtra("returnValue")
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
+            }
+
         }
     }
 }
