@@ -3,8 +3,9 @@ package com.example.viewpagerfragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class FragmentAdapter(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
+class FragmentAdapter(fm: FragmentManager, behavior: Int) : FragmentStatePager(fm, behavior) {
 
     var fragmentList = listOf<Fragment>()
 
