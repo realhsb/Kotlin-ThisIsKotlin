@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:iconSpaceReserved="false">
+    //화면에 보여줄 설정화면의 구조 작성, 계층 구조
+
+    //설정화면에 보여질 카테고리
+    <PreferenceCategory
+        android:title="기능 설정"
+        app:iconSpaceReserved="false">
+
+        <!--
+        입력 필드의 종류
+            CheckBoxPreference : 체크박스 타입의 입력 필드
+            SwitchPreference : 스위치(On 또는 Off 설정) 타입의 입력 필드
+            EditTextPreference : 값을 직접 입력하는 타입의 입력 필드
+            ListPreference : 목록형 입력 필드
+        -->
+
+        <CheckBoxPreference
+            android:key="key_add_shortcut"
+            android:title="바로가기 아이콘"
+            android:icon="@mipmap/ic_launcher"
+            android:defaultValue="true"/>
+
+        <SwitchPreference
+            android:key="key_switch_on"
+            android:title="화면 켜짐"
+            android:icon="@mipmap/ic_launcher"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="옵션 설정"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference
+            android:key="key_edit_name"
+            android:title="이름"
+            android:summary="이름을 입력하세요."
+            android:dialogTile="이름 입력"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            android:key="key_set_item"
+            android:title="목록 선택형"
+            android:summary="목록"
+            android:entries="@array/action_list"
+            android:entryValues="@array/action_values"
+            app:iconSpaceReserved="false"/>
+
+        <PreferenceScreen
+            android:title="설정화면 타이틀"
+            android:summary="설정화면 요약"
+            app:iconSpaceReserved="false">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="http://www.android.com"/>
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
